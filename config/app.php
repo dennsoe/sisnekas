@@ -52,7 +52,8 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://localhost'),
+    'url' => env('APP_URL', 'https://dennsoe.github.io'),
+    'asset_url' => env('ASSET_URL', '/sisnekas'),
 
     /*
     |--------------------------------------------------------------------------
