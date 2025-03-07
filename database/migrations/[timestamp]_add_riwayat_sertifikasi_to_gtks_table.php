@@ -9,7 +9,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('gtks', function (Blueprint $table) {
-            $table->json('riwayat_sertifikasi')->nullable();
+            if (!Schema::hasColumn('gtks', 'riwayat_sertifikasi')) {
+                $table->json('riwayat_sertifikasi')->nullable();
+            }
         });
     }
 
