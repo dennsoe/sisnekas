@@ -1,66 +1,138 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# SISNEKAS - Sistem Informasi Akademik Sekolah
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Tentang Aplikasi
+SISNEKAS adalah sistem informasi akademik sekolah yang dibangun menggunakan Laravel 12 dan Filament 3. Aplikasi ini dirancang untuk memudahkan pengelolaan data akademik sekolah secara efisien dan modern.
 
-## About Laravel
+## Teknologi yang Digunakan
+- PHP ^8.2
+- Laravel Framework ^12.0
+- Filament Admin Panel ^3.2
+- Laravel Sanctum ^4.0
+- Database: MySQL/PostgreSQL (via Doctrine DBAL ^4.2)
+- IndoRegion Package ^3.0 (untuk data wilayah Indonesia)
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Fitur Utama
+- Dashboard Admin dengan Filament
+- Manajemen Data Master
+- Sistem Autentikasi & Autorisasi
+- Pengelolaan Data Wilayah Indonesia
+- RESTful API (via Laravel Sanctum)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Prasyarat
+- PHP >= 8.2
+- Composer
+- Node.js & NPM
+- MySQL/PostgreSQL
+- Git
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Instalasi
 
-## Learning Laravel
+1. Clone repository
+```bash
+git clone https://github.com/dennsoe/sisnekas.git
+cd sisnekas
+```
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+2. Install dependencies
+```bash
+composer install
+npm install
+```
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+3. Setup environment
+```bash
+cp .env.example .env
+php artisan key:generate
+```
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+4. Konfigurasi database di file `.env`
+```env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=sisnekas
+DB_USERNAME=root
+DB_PASSWORD=
+```
 
-## Laravel Sponsors
+5. Jalankan migrasi dan seeder
+```bash
+php artisan migrate --seed
+```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+6. Install assets
+```bash
+npm run build
+```
 
-### Premium Partners
+7. Jalankan aplikasi
+```bash
+php artisan serve
+```
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+## Struktur Folder Utama
+```
+sisnekas/
+├── app/                 # Logic aplikasi
+├── config/             # Konfigurasi aplikasi
+├── database/           # Migrasi dan seeders
+├── public/             # Assets publik
+├── resources/          # Views dan assets
+├── routes/             # Definisi routes
+└── tests/              # Unit/Feature tests
+```
 
-## Contributing
+## Package yang Digunakan
+### Production Dependencies
+- laravel/framework: ^12.0
+- filament/filament: ^3.2
+- azishapidin/indoregion: ^3.0
+- doctrine/dbal: ^4.2
+- laravel/sanctum: ^4.0
+- laravel/tinker: ^2.10.1
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### Development Dependencies
+- fakerphp/faker: ^1.23
+- laravel/pail: ^1.2.2
+- laravel/pint: ^1.13
+- laravel/sail: ^1.41
+- mockery/mockery: ^1.6
+- nunomaduro/collision: ^8.6
+- phpunit/phpunit: ^11.5.3
 
-## Code of Conduct
+## Pengembangan
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### Coding Style
+Proyek ini menggunakan Laravel Pint untuk standarisasi kode. Jalankan:
+```bash
+./vendor/bin/pint
+```
 
-## Security Vulnerabilities
+### Testing
+Jalankan test dengan:
+```bash
+php artisan test
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### Development Server
+```bash
+php artisan serve
+npm run dev
+```
 
-## License
+## Kontribusi
+1. Fork repository
+2. Buat branch fitur (`git checkout -b feature/AmazingFeature`)
+3. Commit perubahan (`git commit -m 'Add some AmazingFeature'`)
+4. Push ke branch (`git push origin feature/AmazingFeature`)
+5. Buat Pull Request
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## Keamanan
+Jika Anda menemukan masalah keamanan, silakan kirim email ke [email Anda].
+
+## Lisensi
+Proyek ini dilisensikan di bawah [MIT License](LICENSE).
+
+## Kontak
+Nama Anda - [@social_media](https://twitter.com/yourusername)
+Link Proyek: [https://github.com/dennsoe/sisnekas](https://github.com/dennsoe/sisnekas)
